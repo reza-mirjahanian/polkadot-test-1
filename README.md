@@ -9,6 +9,10 @@ By Reza Mirjahanian
 
 `npm start`
 
+### Test
+`npm install -g cross-env`
+
+`npm test`
 
 ### todos
 
