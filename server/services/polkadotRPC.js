@@ -8,6 +8,10 @@ class PolkadotRPC {
     this._api = api;
   }
 
+  /**
+   * system_chain
+   * @return {Promise<string|null>}
+   */
   async systemChain() {
     try {
       if (!this._api) {
@@ -16,11 +20,14 @@ class PolkadotRPC {
       return this._api.rpc.system.chain()
     } catch (e) {
       logger.error("PolkadotRPC:systemChain()", e);
-      return false;
+      return null;
     }
   }
 
-
+  /**
+   * system_name
+   * @return {Promise<string|null>}
+   */
   async systemName() {
     try {
       if (!this._api) {
@@ -29,11 +36,14 @@ class PolkadotRPC {
       return this._api.rpc.system.name()
     } catch (e) {
       logger.error("PolkadotRPC:systemName()", e);
-      return false;
+      return null;
     }
   }
 
-
+  /**
+   * system_nodeRoles
+   * @return {Promise<string|null>}
+   */
   async systemNodeRoles() {
     try {
       if (!this._api) {
@@ -42,11 +52,14 @@ class PolkadotRPC {
       return this._api.rpc.system.nodeRoles()
     } catch (e) {
       logger.error("PolkadotRPC:systemNodeRoles()", e);
-      return false;
+      return null;
     }
   }
 
-
+  /**
+   * system_version
+   * @return {Promise<string|null>}
+   */
   async systemVersion() {
     try {
       if (!this._api) {
@@ -55,7 +68,7 @@ class PolkadotRPC {
       return this._api.rpc.system.version()
     } catch (e) {
       logger.error("PolkadotRPC:systemVersion()", e);
-      return false;
+      return null;
     }
   }
 
