@@ -1,0 +1,34 @@
+{
+  "name": "polkadot-test-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./server",
+  "scripts": {
+    "start": "node ./server",
+    "start-dev": "nodemon --watch ./server  ./server",
+    "test-dev": "nodemon --watch ./test --watch ./server  -x npm run test",
+    "eslint:test": "node_modules/.bin/eslint --cache -c .eslintrc.js ./server/*.js ./test/*.js",
+    "eslint:fix": "node_modules/.bin/eslint --cache --fix -c .eslintrc.js ./server/*.js ./test/*.js",
+    "precommit": "npm run eslint:fix",
+    "test": "cross-env NODE_ENV='test' node ./node_modules/mocha/bin/mocha  --ui tdd  --timeout=10000 --exit ./test/**/*.spec.js",
+    "coverage": "cross-env NODE_ENV='test' node_modules/nyc/bin/nyc.js   npm run test",
+    "test-report": "NODE_ENV='test' node_modules/nyc/bin/nyc.js report -r html node_modules/mocha/bin/mocha  --timeout=10000  --exit  test/**/*.spec.js && xdg-open ./coverage/index.html >/dev/null 2>&1",
+    "test-jenkins": "NODE_ENV='test' node_modules/nyc/bin/nyc.js node_modules/mocha/bin/mocha --timeout=10000    --exit  test/**/*.spec.js && NODE_ENV='test' node_modules/nyc/bin/nyc.js report -r html node_modules/mocha/bin/mocha --timeout=10000   --exit  test/**/*.spec.js"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "Reza Mirjahanian <rmirjahanian@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@polkadot/api": "5.4.2-1"
+  },
+  "devDependencies": {
+    "chai": "4.3.4",
+    "eslint": "7.30.0",
+    "mocha": "9.0.2",
+    "nyc": "14.1.1",
+    "sinon": "11.1.1",
+    "sinon-chai": "3.7.0"
+  }
+}
