@@ -12,13 +12,12 @@ async function testing() {
     socket
   });
   const polkadotRPC = new PolkadotRPC(api);
-  const [chain, nodeName, nodeVersion, nodeRules] = await Promise.all([
+  const [chain, nodeName, nodeVersion] = await Promise.all([
     polkadotRPC.systemChain(),
     polkadotRPC.systemName(),
-    polkadotRPC.systemVersion(),
-    polkadotRPC.systemNodeRoles(),
+    polkadotRPC.systemVersion()
   ]);
-  console.log(`You are connected to chain ${chain} using ${nodeName} v${nodeVersion} Rules: ${nodeRules}`);
+  console.log(`You are connected to chain ${chain} using ${nodeName} v${nodeVersion} `);
 
 }
 testing().catch(console.error).finally(() => process.exit());

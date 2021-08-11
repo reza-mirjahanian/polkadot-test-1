@@ -40,21 +40,6 @@ class PolkadotRPC {
     }
   }
 
-  /**
-   * system_nodeRoles
-   * @return {Promise<string|null>}
-   */
-  async systemNodeRoles() {
-    try {
-      if (!this._api) {
-        throw Error('Not valid api provider!')
-      }
-      return this._api.rpc.system.nodeRoles()
-    } catch (e) {
-      logger.error("PolkadotRPC:systemNodeRoles()", e);
-      return null;
-    }
-  }
 
   /**
    * system_version
