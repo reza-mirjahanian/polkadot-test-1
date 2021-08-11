@@ -17,7 +17,8 @@ class PolkadotRPC {
       if (!this._api) {
         throw Error('Not valid api provider!')
       }
-      return this._api.rpc.system.chain()
+      const chain = await this._api.rpc.system.chain();
+      return String(chain)
     } catch (e) {
       logger.error("PolkadotRPC:systemChain()", e);
       return null;
@@ -33,7 +34,8 @@ class PolkadotRPC {
       if (!this._api) {
         throw Error('Not valid api provider!')
       }
-      return this._api.rpc.system.name()
+      const name = await this._api.rpc.system.name();
+      return String(name)
     } catch (e) {
       logger.error("PolkadotRPC:systemName()", e);
       return null;
@@ -50,7 +52,8 @@ class PolkadotRPC {
       if (!this._api) {
         throw Error('Not valid api provider!')
       }
-      return this._api.rpc.system.version()
+      const version = await this._api.rpc.system.version();
+      return String(version);
     } catch (e) {
       logger.error("PolkadotRPC:systemVersion()", e);
       return null;
